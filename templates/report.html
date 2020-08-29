@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alba Search</title>
+        <style>
+            section {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: repeat(7, 1fr);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Search Results</h1>
+        <h3>Found {{resultsNumber}} results for: {{searchingBy}}</h3>
+        <a href="/export?area={{searchingBy}}">Export to CSV</a>
+        <section>
+            <h4>Company</h4>
+            <h4>Title</h4>
+            <h4>Location</h4>
+            <h4>Pay</h4>
+            <h4>Worktime</h4>
+            <h4>Recently</h4>
+            <h4>Howpay</h4>
+            {% for job in alba %}
+                <span>{{job.comp}}</span>
+                <span>{{job.title}}</span>
+                <span>{{job.location}}</span>
+                <span>{{job.pay}}</span>
+                <span>{{job.worktime}}</span>
+                <span>{{job.recently}}</span>
+                <span>{{job.howpay}}</span>
+            {% endfor %}
+        </section>
+    </body>
+</html>
